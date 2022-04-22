@@ -23,5 +23,5 @@ def remove_citations(text):
 if __name__ == "__main__":
     from read_docx import read_doc
     doc = read_doc(r"C:\Users\Kuda\Downloads\SAD Assignments"
-                   r"\Kudakwashe Henry Mushunje R191584H SAD Assignment.docx")
+                   r"\Kudakwashe Henry Mushunje R191584H SAD Assignment.docx","")
     print(get_citations(doc))

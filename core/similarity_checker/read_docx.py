@@ -23,4 +23,4 @@ def read_doc(filename, file_dir=r"C:\Users\Kuda\Documents\Programming\Django\Pla
 
 
 if __name__ == "__main__":
-    print(read_doc(r"2 ARC HR, Finance and Governance review Pleriminary Report.docx"))
+    print(read_doc(r"C:\Users\Kuda\Documents\The Work of Wolves Asimov.docx", ""))
