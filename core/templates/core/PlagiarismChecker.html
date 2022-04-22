@@ -1,0 +1,88 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% if form %}
+        <form class="card form" action="{% url 'upload_docs' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2> Documents </h2>
+
+        <div>
+            <label class="custom-file-upload">
+                <i class="material-icons">cloud_upload</i>
+                Document 1
+                {{ form.doc1 }}
+              </label>
+        </div>
+
+        <div>
+            <label class="custom-file-upload">
+                <i class="material-icons">cloud_upload</i>
+                  Document 2
+                {{ form.doc2 }}
+            </label>
+        </div>
+
+      <!--  {{ form|crispy }} -->
+
+        <div class="button-row">
+            <button type="submit" class="button" id="next">
+                Upload
+                <i class="material-icons md-18 no-padding">arrow_forward</i>
+            </button>
+        </div>
+      </form>
+    {% endif %}
+
+    {% if results %}
+        <div class="card">
+            <h2>Scan Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Document 1</th>
+                        <th>Document 2</th>
+                        <th>Citations 1</th>
+                        <th>Citations 2</th>
+                        <th>Similarity Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ results.doc1 }}</td>
+                        <td>{{ results.doc2 }}</td>
+                        <td>{{ results.citations1.0 }}</td>
+                        <td>{{ results.citations2.0 }}</td>
+                        <td>{{ results.similarity|floatformat:2 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+    {% if history %}
+        <div class ="card">
+            <h2> {{user.username| title}} Scan History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Document 1</th>
+                        <th>Document 2</th>
+                        <th>Similarity Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for histItem in history %}
+                        <tr>
+                            <td> {{ histItem.date|date:"F d, H:i" }} </td>
+                            <td> {{ histItem.doc1 }} </td>
+                            <td> {{ histItem.doc2 }} </td>
+                            <td> {{ histItem.similarity|floatformat:2 }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    {% endif %}
+{% endblock content %}
