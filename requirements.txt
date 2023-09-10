@@ -6,3 +6,5 @@ requests
 django-crispy-forms
 crispy-bootstrap4
 django_cleanup
+reportlab
+scikit-learn

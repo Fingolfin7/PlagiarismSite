@@ -7,3 +7,7 @@ class DocumentForm(forms.Form):
 
     class Meta:
         fields = ['doc1', 'doc2']
+
+
+class MultiDocumentForm(forms.Form):
+    documents = forms.FileField(widget=forms.ClearableFileInput(attrs={'allow_multiple_selected': True}), required=False)

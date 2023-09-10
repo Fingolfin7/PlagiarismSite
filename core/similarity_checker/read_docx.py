@@ -1,9 +1,10 @@
 import docx2txt
 import PyPDF2
+from PlagiarismSite.settings import MEDIA_ROOT
 import os
 
 
-def read_doc(filename, file_dir=r"C:\Users\Kuda\Documents\Programming\Django\PlagiarismSite\media"):
+def read_doc(filename, file_dir=MEDIA_ROOT):
     path = os.path.join(file_dir, filename)
     print(path)
 
@@ -14,8 +15,8 @@ def read_doc(filename, file_dir=r"C:\Users\Kuda\Documents\Programming\Django\Pla
         file_contents = docx2txt.process(path)
     elif path.endswith(".pdf"):
         with open(path, 'rb') as pdf_file:
-            pdf_reader = PyPDF2.PdfFileReader(pdf_file)
-            file_contents = pdf_reader.getPage(0).extractText()
+            pdf_reader = PyPDF2.PdfReader(pdf_file)
+            file_contents = pdf_reader.pages[0].extract_text()
     else:
         file_contents = None
 

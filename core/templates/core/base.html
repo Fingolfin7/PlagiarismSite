@@ -22,9 +22,12 @@
       {%if user.is_authenticated %}
         <div>
           <b class="plain-link plain" style="padding-right:2.5rem;">{{ user.username | title }}</b>
+          <a class="plain-link" style="margin-right: 2rem;" href="{% url 'compare_multiple' %}">Multiple Docs</a>
+          <a class="plain-link" style="margin-right: 2rem;" href="{% url 'get_report' %}">Get Report</a>
           <a class="plain-link" href="{% url 'logout' %}">Logout</a>
         </div>
       {% endif %}
+
     </div>
 
     <div class="container">

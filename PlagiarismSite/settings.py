@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'crispy_bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -138,4 +139,5 @@ LOGOUT_REDIRECT_URL = 'login'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR/'media'
+
 

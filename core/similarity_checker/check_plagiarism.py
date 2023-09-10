@@ -1,8 +1,8 @@
 import os
 # extract the text from word documents and pdfs
-from .read_docx import read_doc
+from core.similarity_checker.read_docx import read_doc
 # cosine_similarity  is a technique used in language processing to find the similarity of two bodies of text
-from .cosine_similarity import cosine_similarity
+from core.similarity_checker.cosine_similarity import cosine_similarity
 # python AI, module that allows us to 'vectorize' text (i.e turn text to numbers) to be used in
 # the cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
