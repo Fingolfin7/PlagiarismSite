@@ -124,7 +124,7 @@ def compare_multiple(request):
                     doc2_citations = get_citations(read_doc(doc2_name))
 
                     # save to history in database
-                    log_to_history = History(doc1=doc1_name, doc2=doc2_name, similarity=sim, user=request.user)
+                    log_to_history = History(doc1=doc1_name[:doc1_name.rfind("_")], doc2=doc2_name[:doc2_name.rfind("_")], similarity=sim, user=request.user)
                     log_to_history.save()
 
                     # delete documents from "media"
@@ -133,11 +133,12 @@ def compare_multiple(request):
 
                     scan_results.append({
                         "doc1": doc1_name[:doc1_name.rfind("_")],
-                        "doc2": doc1_name[:doc1_name.rfind("_")],
+                        "doc2": doc2_name[:doc2_name.rfind("_")],
                         "citations1": doc1_citations,
                         "citations2": doc2_citations,
                         "similarity": sim
                     })
+
 
             return render(request, 'core/multi_doc_comparison.html', {
                 'form': MultiDocumentForm(),
