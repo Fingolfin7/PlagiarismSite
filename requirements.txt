@@ -1,7 +1,9 @@
-docx2txt
-Django
-PyPDF2
+numpy
+scipy
 scikit_learn
+docx2txt==0.8
+Django==3.2.9
+PyPDF2==1.27.8
 requests
 django-crispy-forms
 crispy-bootstrap4
